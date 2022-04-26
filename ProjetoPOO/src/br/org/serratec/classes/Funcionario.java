@@ -58,13 +58,16 @@ public class Funcionario extends Pessoa implements Calculos {
 			return salarioBruto * 0.075;
 		}
 		else if (salarioBruto < 2427.36) {
-			return salarioBruto * 0.09;
+			return (salarioBruto * 0.09) - 18.18;
 		}
 		else if (salarioBruto < 3641.04) {
-			return salarioBruto * 0.12;
+			return (salarioBruto * 0.12) - 91.00;
+		}
+		else if (salarioBruto < 7087.22) {
+			return (salarioBruto * 0.14) - 163.82;
 		}
 		else {
-			return salarioBruto * 0.14;
+			return (7087.22 * 0.14) - 163.82;
 		}
 	}
 

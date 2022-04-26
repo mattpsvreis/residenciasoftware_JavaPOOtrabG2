@@ -6,7 +6,7 @@ import java.time.Period;
 import br.org.serratec.enums.Parentesco;
 import br.org.serratec.exceptions.DependenteException;
 
-public class Dependente extends Pessoa {
+public class Dependente extends Pessoa  {
 	private Parentesco parentesco;
 
 	public Dependente(String nome, String cpf, LocalDate dataNascimento, Parentesco parentesco) {
