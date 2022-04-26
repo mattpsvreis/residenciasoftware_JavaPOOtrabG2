@@ -1,6 +1,8 @@
 package br.org.serratec.classes;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.org.serratec.interfaces.Calculos;
 
@@ -8,7 +10,7 @@ public class Funcionario extends Pessoa implements Calculos {
 	private double salarioBruto;
 	private double descontoINSS;
 	private double descontoIR;
-	private Dependente dependente;
+	private List<Object> listDependentes = new ArrayList<>();
 
 	public Funcionario(String nome, String cpf, LocalDate dataNascimento, double salarioBruto) {
 		super(nome, cpf, dataNascimento);
@@ -27,8 +29,8 @@ public class Funcionario extends Pessoa implements Calculos {
 		return descontoIR;
 	}
 	
-	public void cadastrarDependente() {
-		totalDependentes++;
+	public void cadastrarDependente(Object o) {
+		listDependentes.add(o);
 	}
 
 	@Override
@@ -37,16 +39,16 @@ public class Funcionario extends Pessoa implements Calculos {
 			return 0;
 		}
 		else if (salarioBruto < 2826.66) {
-			return (((salarioBruto - (totalDependentes * 189.59) - calcINSS()) * 0.075) - 142.80);
+			return (((salarioBruto - (listDependentes.size() * 189.59) - calcINSS()) * 0.075) - 142.80);
 		}
 		else if (salarioBruto < 3751.06) {
-			return (((salarioBruto - (totalDependentes * 189.59) - calcINSS()) * 0.15) - 354.80);
+			return (((salarioBruto - (listDependentes.size() * 189.59) - calcINSS()) * 0.15) - 354.80);
 		}
 		else if (salarioBruto < 4664.69) {
-			return (((salarioBruto - (totalDependentes * 189.59) - calcINSS()) * 0.225) - 636.13);
+			return (((salarioBruto - (listDependentes.size() * 189.59) - calcINSS()) * 0.225) - 636.13);
 		}
 		else {
-			return (((salarioBruto - (totalDependentes * 189.59) - calcINSS()) * 0.275) - 869.36);
+			return (((salarioBruto - (listDependentes.size() * 189.59) - calcINSS()) * 0.275) - 869.36);
 		}
 	}
 
