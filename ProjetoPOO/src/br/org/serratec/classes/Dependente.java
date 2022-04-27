@@ -17,6 +17,11 @@ public class Dependente extends Pessoa  {
 			throw new DependenteException("Dependente tem que ser menor que 18 anos!");
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "\nParentesco: " + parentesco;
+	}
 
 	public Parentesco getParentesco() {
 		return parentesco;

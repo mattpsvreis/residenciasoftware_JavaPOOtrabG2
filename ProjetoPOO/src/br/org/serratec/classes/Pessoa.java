@@ -3,6 +3,8 @@ package br.org.serratec.classes;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import br.org.serratec.exceptions.PessoaException;
+
 public abstract class Pessoa implements Comparable<Pessoa> {
 	private String nome;
 	private String cpf;
@@ -12,6 +14,11 @@ public abstract class Pessoa implements Comparable<Pessoa> {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
+	}
+	
+	@Override
+	public String toString() {
+		return "Nome: " + nome + "\nCPF: " + cpf + "\nData de Nascimento: " + dataNascimento;
 	}
 
 	public String getNome() {

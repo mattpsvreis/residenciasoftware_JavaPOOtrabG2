@@ -1,5 +1,16 @@
 package br.org.serratec.enums;
 
 public enum Parentesco {
-	FILHO, SOBRINHO, OUTROS;
+	FILHO("Filho"), SOBRINHO("Sobrinho"), OUTROS("Outros");
+
+	private String parentesco;
+
+	private Parentesco(String parentesco) {
+		this.parentesco = parentesco;
+	}
+
+	public String getParentesco() {
+		return parentesco;
+	}
+
 }

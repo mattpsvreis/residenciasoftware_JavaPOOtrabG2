@@ -16,6 +16,11 @@ public class Funcionario extends Pessoa implements Calculos {
 		super(nome, cpf, dataNascimento);
 		this.salarioBruto = salarioBruto;
 	}
+	
+	@Override
+	public String toString() {
+		 return super.toString() + "\nSalário Bruto: " + salarioBruto;
+	}
 
 	public double getSalarioBruto() {
 		return salarioBruto;
