@@ -1,4 +1,4 @@
-package br.org.serratec.exceptions;
+package exceptions;
 
 public class PessoaException extends RuntimeException {
 

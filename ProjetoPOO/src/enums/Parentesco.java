@@ -1,4 +1,4 @@
-package br.org.serratec.enums;
+package enums;
 
 public enum Parentesco {
 	FILHO("Filho"), SOBRINHO("Sobrinho"), OUTROS("Outros");
