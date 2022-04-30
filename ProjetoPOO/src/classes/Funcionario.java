@@ -19,13 +19,18 @@ public class Funcionario extends Pessoa implements Calculos {
 		super(nome, cpf, dataNascimento);
 		this.salarioBruto = salarioBruto;
 		
-		if (Pessoa.getListPessoas().size() == 0) {
-			listFuncionarios.add(this);
-			Pessoa.getListPessoas().add(this);
-		}
-		else if (cpfCheck(cpf, nome) == false) {
-			listFuncionarios.add(this);
-			Pessoa.getListPessoas().add(this);
+		try {
+			if (Pessoa.getListPessoas().size() == 0) {
+				listFuncionarios.add(this);
+				Pessoa.getListPessoas().add(this);
+			}
+			else if (cpfCheck(cpf, nome) == false) {
+				listFuncionarios.add(this);
+				Pessoa.getListPessoas().add(this);
+			}
+		} catch (Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 	
