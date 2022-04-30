@@ -74,10 +74,7 @@ public class Main {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(writePath));
 			
-			int i = 0;
-			
 			for (Funcionario funcionario : funcionarios) {
-				i++;
 				
 				funcionario.calcINSS();
 				funcionario.calcIR();
@@ -89,7 +86,7 @@ public class Main {
 						+ String.format("%.2f", funcionario.getDescontoIR()) + ";"
 						+ String.format("%.2f", funcionario.getSalarioLiquido()));
 				
-				if (i < funcionarios.size()) {
+				for (int i = 0; i < funcionarios.size(); i++) {
 					bw.newLine();
 				}
 			}
