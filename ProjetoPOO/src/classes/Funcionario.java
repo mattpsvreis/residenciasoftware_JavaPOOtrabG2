@@ -89,39 +89,39 @@ public class Funcionario extends Pessoa implements Calculos {
 
 	@Override
 	public void calcIR() {
-		if (salarioBruto < 1903.98) {
+		if (salarioBruto <= TetoIR1) {
 			this.descontoIR = 0;
 		}
-		else if (salarioBruto < 2826.66) {
-			this.descontoIR = (((salarioBruto - (listDependentes.size() * 189.59) - getDescontoINSS()) * 0.075) - 142.80);
+		else if (salarioBruto <= TetoIR2) {
+			this.descontoIR = (((salarioBruto - (listDependentes.size() * ValorDependente) - getDescontoINSS()) * AliquotaIR1) - ParcelaIR1);
 		}
-		else if (salarioBruto < 3751.06) {
-			this.descontoIR = (((salarioBruto - (listDependentes.size() * 189.59) - getDescontoINSS()) * 0.15) - 354.80);
+		else if (salarioBruto <= TetoIR3) {
+			this.descontoIR = (((salarioBruto - (listDependentes.size() * ValorDependente) - getDescontoINSS()) * AliquotaIR2) - ParcelaIR2);
 		}
-		else if (salarioBruto < 4664.69) {
-			this.descontoIR = (((salarioBruto - (listDependentes.size() * 189.59) - getDescontoINSS()) * 0.225) - 636.13);
+		else if (salarioBruto <= TetoIR4) {
+			this.descontoIR = (((salarioBruto - (listDependentes.size() * ValorDependente) - getDescontoINSS()) * AliquotaIR3) - ParcelaIR3);
 		}
 		else {
-			this.descontoIR = (((salarioBruto - (listDependentes.size() * 189.59) - getDescontoINSS()) * 0.275) - 869.36);
+			this.descontoIR = (((salarioBruto - (listDependentes.size() * ValorDependente) - getDescontoINSS()) * AliquotaIR4) - ParcelaIR4);
 		}
 	}
 
 	@Override
 	public void calcINSS() {
-		if (salarioBruto < 1212.00) {
-			this.descontoINSS = salarioBruto * 0.075;
+		if (salarioBruto <= TetoINSS1) {
+			this.descontoINSS = salarioBruto * AliquotaINSS1;
 		}
-		else if (salarioBruto < 2427.36) {
-			this.descontoINSS = (salarioBruto * 0.09) - 18.18;
+		else if (salarioBruto <= TetoINSS2) {
+			this.descontoINSS = (salarioBruto * AliquotaINSS2) - ParcelaINSS1;
 		}
-		else if (salarioBruto < 3641.04) {
-			this.descontoINSS = (salarioBruto * 0.12) - 91.00;
+		else if (salarioBruto <= TetoINSS3) {
+			this.descontoINSS = (salarioBruto * AliquotaINSS3) - ParcelaINSS2;
 		}
-		else if (salarioBruto < 7087.22) {
-			this.descontoINSS = (salarioBruto * 0.14) - 163.82;
+		else if (salarioBruto <= TetoINSS4) {
+			this.descontoINSS = (salarioBruto * AliquotaINSS4) - ParcelaINSS3;
 		}
 		else {
-			this.descontoINSS = (7087.22 * 0.14) - 163.82;
+			this.descontoINSS = (TetoINSS4 * AliquotaINSS4) - ParcelaINSS3;
 		}
 	}
 
