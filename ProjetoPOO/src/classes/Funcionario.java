@@ -36,7 +36,11 @@ public class Funcionario extends Pessoa implements Calculos {
 	
 	@Override
 	public String toString() {
-		 return super.toString() + "\nSalário Bruto: " + salarioBruto;
+		 return super.toString() 
+				+ "\nSalário Bruto: " + salarioBruto
+				+ "\nDesconto INSS: R$" + String.format("%.2f", descontoINSS)
+		 		+ "\nDesconto IR: R$" + String.format("%.2f", descontoIR)
+		 		+ "\nSalário Líquido: R$" + String.format("%.2f", salarioLiquido);
 	}
 
 	public double getSalarioBruto() {
