@@ -1,13 +1,10 @@
 package classes;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.HashSet;
 import java.util.Set;
 
 import enums.Parentesco;
-import exceptions.DependenteException;
-import exceptions.PessoaException;
 import interfaces.Calculos;
 
 public class Funcionario extends Pessoa implements Calculos {
@@ -84,7 +81,7 @@ public class Funcionario extends Pessoa implements Calculos {
 					listDependentes.add(d);
 				}
 			}
-		} catch (PessoaException e) {
+		} catch (Exception e) {
 			System.out.println("Erro: " + e.getMessage());
 			e.printStackTrace();
 		}
@@ -133,10 +130,4 @@ public class Funcionario extends Pessoa implements Calculos {
 		this.salarioLiquido = salarioBruto - getDescontoINSS() - getDescontoIR();
 	}
 
-	public boolean idadeCheck(LocalDate dataNascimento, String nome, String cpf) {
-		if (Period.between(dataNascimento, LocalDate.now()).getYears() > 17) {
-			throw new DependenteException("O dependente " + nome + ", CPF " + cpf + ", tem 18 anos ou mais e portanto não pode ser cadastrado como dependente.");
-		}
-		return false;
-	}
 }

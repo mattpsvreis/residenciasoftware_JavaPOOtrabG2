@@ -1,9 +1,11 @@
 package classes;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.HashSet;
 import java.util.Set;
 
+import exceptions.DependenteException;
 import exceptions.PessoaException;
 
 public abstract class Pessoa {
@@ -57,7 +59,13 @@ public abstract class Pessoa {
 				throw new PessoaException("O CPF " + cpf + ", do(a) " + nome + ", já está cadastrado e portanto não pode ser cadastrado novamente.");
 			}
 		}
-		
+		return false;
+	}
+	
+	public boolean idadeCheck(LocalDate dataNascimento, String nome, String cpf) {
+		if (Period.between(dataNascimento, LocalDate.now()).getYears() > 17) {
+			throw new DependenteException("O dependente " + nome + ", CPF " + cpf + ", tem 18 anos ou mais e portanto não pode ser cadastrado como dependente.");
+		}
 		return false;
 	}
 

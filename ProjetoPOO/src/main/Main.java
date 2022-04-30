@@ -15,6 +15,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		List<Funcionario> funcionarios = new ArrayList<>();
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Digite o caminho do arquivo a ser lido:");
 		String readPath = sc.nextLine();
